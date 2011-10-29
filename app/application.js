@@ -33,7 +33,6 @@
       return $.each(all_slides, function(key, value) {
         var each_slide;
         each_slide = '<section class="slide" id="' + value.id + '">' + value.content + '</section>';
-        alert(each_slide);
         window.a = each_slide;
         return $('.deck-container').append(each_slide);
       });

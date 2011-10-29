@@ -29,7 +29,6 @@ class SlideApp extends Spine.Controller
     $.each all_slides, (key, value) ->
       #each_slide = $("#slideTemplate").tmpl(value)
       each_slide = '<section class="slide" id="'+value.id+'">' + value.content + '</section>'
-      alert(each_slide)
       window.a = each_slide
       $('.deck-container').append(each_slide)
 

@@ -145,6 +145,7 @@ html {
 .deck-container .ie6 input {
   vertical-align: text-bottom;
 }
+
 .deck-container label, .deck-container input[type="button"], .deck-container input[type="submit"], .deck-container input[type="image"], .deck-container button {
   cursor: pointer;
 }
@@ -160,10 +161,12 @@ html {
 .deck-container input:invalid .no-boxshadow, .deck-container textarea:invalid .no-boxshadow {
   background-color: #f0dddd;
 }
+/*
 .deck-container button {
   width: auto;
   overflow: visible;
 }
+*/
 .ie7 .deck-container img {
   -ms-interpolation-mode: bicubic;
 }

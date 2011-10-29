@@ -40,6 +40,56 @@
 		</section>
 	</script>
 	
+	<!-- bootstrap and other shit for displaying modal -->
+    <script type="text/javascript" src="script/jquery.controls.js"></script>
+    <script type="text/javascript" src="script/jquery.form.js"></script>
+    <script type="text/javascript" src="script/jquery.dialog2.js"></script>
+    <script type="text/javascript" src="script/prettify.js"></script>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/prettify.css">
+	<link rel="stylesheet" href="css/jquery-dialog2/jquery.dialog2.css">
+    
+    <style type="text/css">
+        
+        #logo {
+            background: no-repeat scroll url('logo.png') 0 0;
+            height: 130px;
+        }
+        
+        .source {
+            display: none;
+        }
+        
+        .activity, .source {
+            margin-left: 15px;
+            margin-bottom: 20px;
+            border-left: solid 10px #F2F2F2;
+            padding: 5px 15px 5px 15px;
+        }
+        
+        .activity p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .source {
+            display: none;
+            padding-top: 0;
+        }
+        
+        .source.open {
+            display: block;
+        }
+        
+        pre {
+            padding: 5px !important;
+        }
+        
+        h2 {
+            margin-top: 30px;
+        }
+    </style>
+	
 </head>
 
 <body class="deck-container">
@@ -47,7 +97,10 @@
 <div class="theme-menu">
 	<h2>Edit</h2>	
 	
-	<label for="style-themes">Style:</label>
+	<button class="btn" style="font-size: 12px; position: relative; top: -3px;">Add Slide</button>
+	<button class="btn" style="font-size: 12px; position: relative; top: -3px;">Edit Slide</button>
+	
+	<!-- <label for="style-themes">Style:</label>
 	<select id="style-themes">
 		<option selected value="../themes/style/web-2.0.css">Web 2.0</option>
 		<option value="../themes/style/swiss.css">Swiss</option>
@@ -61,7 +114,7 @@
 		<option value="../themes/transition/vertical-slide.css">Vertical Slide</option>
 		<option value="../themes/transition/fade.css">Fade</option>
 		<option value="">None</option>
-	</select>
+	</select> -->
 </div>
 
 <div id="content">
