@@ -27,15 +27,15 @@
     }
     SlideApp.prototype.addAll = function() {
       var all_slides;
-      alert("got to add all");
       Slide.fetch();
       all_slides = Slide.all();
-      alert(all_slides);
       $('#content').html("");
       return $.each(all_slides, function(key, value) {
         var each_slide;
-        each_slide = $("#slideTemplate").tmpl(value);
-        return $('#content').append(each_slide);
+        each_slide = '<section class="slide" id="' + value.id + '">' + value.content + '</section>';
+        alert(each_slide);
+        window.a = each_slide;
+        return $('.deck-container').append(each_slide);
       });
     };
     return SlideApp;

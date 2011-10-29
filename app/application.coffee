@@ -20,18 +20,18 @@ class SlideApp extends Spine.Controller
 #      @el.find(".items").append(view.render().el)
   
   addAll: =>
-    alert("got to add all")
     Slide.fetch()
     #Task.each(@addOne)
     all_slides = Slide.all()
     
-    alert(all_slides)
-    
     $('#content').html("")
     
     $.each all_slides, (key, value) ->
-      each_slide = $("#slideTemplate").tmpl(value)
-      $('#content').append(each_slide)
+      #each_slide = $("#slideTemplate").tmpl(value)
+      each_slide = '<section class="slide" id="'+value.id+'">' + value.content + '</section>'
+      alert(each_slide)
+      window.a = each_slide
+      $('.deck-container').append(each_slide)
 
 
 $ ->
