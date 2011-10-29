@@ -87,6 +87,17 @@
 			});
 		});
 		
+		function add_slide() {
+			description = $('#slide_content').val();
+			
+			new_slide = Slide.init( { name: "blargos", content: description } );
+			
+			new_slide.save();
+			
+			window.slideapp.addAll();
+			
+			$("#addform").dialog2("close");
+		};
 		
 	</script>
 </head>
@@ -140,12 +151,12 @@
 				<div class="clearfix">
 					<label for="textarea">Slide Content</label>
 					<div class="input">
-						<textarea class="xxlarge" id="textarea2" name="textarea2" rows="3"></textarea>
+						<textarea class="xxlarge" id="slide_content" name="textarea2" rows="3"></textarea>
 						<span class="help-block"> Put in HTML what you want the slide content to be </span>
 					</div>
 				</div><!-- /clearfix -->
 				<div class="actions">
-					<input type="submit" class="btn primary" value="Save changes">
+					<input class="btn primary" value="Save changes" onclick="add_slide()">
 					&nbsp;
 					<button type="reset" class="btn">
 						Cancel

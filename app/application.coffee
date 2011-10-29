@@ -34,7 +34,7 @@ class SlideApp extends Spine.Controller
 
 
 $ ->
-  new SlideApp(el: $("#content"), item: "blarg"  )
+ window.slideapp = new SlideApp(el: $("#content"), item: "blarg"  )
 
 exports = this
 exports.Slide = Slide

@@ -40,7 +40,7 @@
     return SlideApp;
   })();
   $(function() {
-    return new SlideApp({
+    return window.slideapp = new SlideApp({
       el: $("#content"),
       item: "blarg"
     });
