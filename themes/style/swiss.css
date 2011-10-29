@@ -46,6 +46,7 @@
   background: #c00;
   color: #fff;
 }
+/*
 .deck-container a, .deck-container a:hover, .deck-container a:focus, .deck-container a:active, .deck-container a:visited {
   color: #c00;
   text-decoration: none;
@@ -53,6 +54,8 @@
 .deck-container a:hover, .deck-container a:focus {
   text-decoration: underline;
 }
+
+*/
 .deck-container .deck-prev-link, .deck-container .deck-next-link {
   background: #ccc;
   font-family: serif;

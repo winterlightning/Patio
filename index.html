@@ -89,6 +89,24 @@
             margin-top: 30px;
         }
     </style>
+
+	<script type="text/javascript">
+	    $(function() {
+	        $("#addform").dialog2({
+	            title: "Alert", 
+	            autoOpen: false,
+	            buttons: {
+	                Close: { 
+	                    primary: true, 
+	                    click: function() {
+	                        $(this).dialog2("close");
+	                    }
+	                }
+	            }, 
+	            removeOnClose: false
+	        });
+	    });
+	</script>
 	
 </head>
 
@@ -97,24 +115,9 @@
 <div class="theme-menu">
 	<h2>Edit</h2>	
 	
-	<button class="btn" style="font-size: 12px; position: relative; top: -3px;">Add Slide</button>
+	<button class="btn" style="font-size: 12px; position: relative; top: -3px;" onclick="$('#addform').dialog2('open'); return false">Add Slide</button>
 	<button class="btn" style="font-size: 12px; position: relative; top: -3px;">Edit Slide</button>
-	
-	<!-- <label for="style-themes">Style:</label>
-	<select id="style-themes">
-		<option selected value="../themes/style/web-2.0.css">Web 2.0</option>
-		<option value="../themes/style/swiss.css">Swiss</option>
-		<option value="../themes/style/neon.css">Neon</option>
-		<option value="">None</option>
-	</select>
-	
-	<label for="transition-themes">Transition:</label>
-	<select id="transition-themes">
-		<option selected value="../themes/transition/horizontal-slide.css">Horizontal Slide</option>
-		<option value="../themes/transition/vertical-slide.css">Vertical Slide</option>
-		<option value="../themes/transition/fade.css">Fade</option>
-		<option value="">None</option>
-	</select> -->
+
 </div>
 
 <div id="content">
@@ -142,7 +145,9 @@
 	</ol>
 </section>
 
-
+<div id="addform">
+	<p>This shit is the add form, dawg!</p>
+</div>
 
 <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="deck-next-link" title="Next">&#8594;</a>
