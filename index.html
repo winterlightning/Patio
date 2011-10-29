@@ -5,9 +5,9 @@
 	
 	<title>Getting Started with deck.js</title>
 	
-	<meta name="description" content="A jQuery library for modern HTML presentations">
-	<meta name="author" content="Caleb Troughton">
-	<meta name="viewport" content="width=1024, user-scalable=no">
+	<meta name="description" content="Local Storage Powerpoint implementation">
+	<meta name="author" content="Ray Wang">
+	<!-- <meta name="viewport" content="width=1024, user-scalable=no"> -->
 	
 	<!-- Core and extension CSS files -->
 	<link rel="stylesheet" href="core/deck.core.css">
@@ -34,6 +34,12 @@
 	<script src="app/spine.local.js" type="text/javascript" charset="utf-8"></script>
 	<script src="app/application.js" type="text/javascript" charset="utf-8"></script>
 	
+	<script type="text/x-jquery-tmpl" id="slideTemplate">
+		<section class="slide" id="${name}">
+			${content}
+		</section>
+	</script>
+	
 </head>
 
 <body class="deck-container">
@@ -56,6 +62,9 @@
 		<option value="../themes/transition/fade.css">Fade</option>
 		<option value="">None</option>
 	</select>
+</div>
+
+<div id="content">
 </div>
 
 <section class="slide" id="title-slide">

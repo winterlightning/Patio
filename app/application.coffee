@@ -5,4 +5,38 @@ class Slide extends Spine.Model
   
   @extend Spine.Model.Local
 
+class SlideApp extends Spine.Controller
+  
+  constructor: ->
+    super
+    Slide.fetch()
+    @addAll()
+    #Task.bind("create",  @addOne)
+    #Task.bind("refresh", @addAll)
+    
+#  addOne: (task) =>
+#    if task.date == @item.toDateString()
+#      view = new Tasks(item: task)
+#      @el.find(".items").append(view.render().el)
+  
+  addAll: =>
+    alert("got to add all")
+    Slide.fetch()
+    #Task.each(@addOne)
+    all_slides = Slide.all()
+    
+    alert(all_slides)
+    
+    $('#content').html("")
+    
+    $.each all_slides, (key, value) ->
+      each_slide = $("#slideTemplate").tmpl(value)
+      $('#content').append(each_slide)
 
+
+$ ->
+  new SlideApp(el: $("#content"), item: "blarg"  )
+
+exports = this
+exports.Slide = Slide
+exports.SlideApp = SlideApp
