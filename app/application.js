@@ -30,12 +30,13 @@
       Slide.fetch();
       all_slides = Slide.all();
       $('#content').html("");
-      return $.each(all_slides, function(key, value) {
+      $.each(all_slides, function(key, value) {
         var each_slide;
         each_slide = '<section class="slide" id="' + value.id + '">' + value.content + '</section>';
         window.a = each_slide;
         return $('.deck-container').append(each_slide);
       });
+      return $.deck('.slide');
     };
     return SlideApp;
   })();

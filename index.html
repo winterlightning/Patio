@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Getting Started with deck.js</title>
+	<title>Html5 Powerpoint</title>
 	<meta name="description" content="Local Storage Powerpoint implementation">
 	<meta name="author" content="Ray Wang">
 	<!-- <meta name="viewport" content="width=1024, user-scalable=no"> -->
@@ -85,6 +85,22 @@
 				},
 				removeOnClose : false
 			});
+			
+			$("#editform").dialog2({
+				title : "Edit the slide",
+				autoOpen : false,
+				buttons : {
+					Close : {
+						primary : true,
+						click : function() {
+							$(this).dialog2("close");
+						}
+					}
+				},
+				removeOnClose : false
+			});
+
+			
 		});
 		
 		function add_slide() {
@@ -94,9 +110,28 @@
 			
 			new_slide.save();
 			
-			window.slideapp.addAll();
+			//window.slideapp.addAll();
 			
 			$("#addform").dialog2("close");
+			location.reload("#"+new_slide.id)
+		};
+		
+		function delete_slide() {
+			current_id = $.deck('getSlide')[0].id;
+			curr_slide = Slide.find( current_id );
+			curr_slide.destroy();
+			
+			//window.slideapp.addAll();
+			location.reload();
+		};
+		
+		function edit_slide() {
+			current_id = $.deck('getSlide')[0].id;
+			
+			curr_slide = Slide.find( current_id );
+			curr_slide.content = $('#slide_edit').val();
+			curr_slide.save();
+			
 		};
 		
 	</script>
@@ -110,9 +145,13 @@
 		<button class="btn" style="font-size: 12px; position: relative; top: -3px;">
 			Edit Slide
 		</button>
+		<button class="btn" style="font-size: 12px; position: relative; top: -3px;" onclick="delete_slide()">
+			Delete Slide
+		</button>
+		
 	</div>
 	<div id="content"></div>
-	<section class="slide" id="title-slide">
+	<!-- <section class="slide" id="title-slide">
 		<h1>Powerpoint imitata</h1>
 	</section>
 	<section class="slide" id="how-to-overview">
@@ -137,17 +176,11 @@
 				</p>
 			</li>
 		</ol>
-	</section>
+	</section> -->
 	
 	<div id="addform">
 		<form class="form-stacked">
 			<fieldset>
-				<!-- <div class="clearfix">
-				<label for="xlInput3">Name</label>
-				<div class="input">
-				<input class="xlarge" id="xlInput3" name="xlInput3" size="30" type="text">
-				</div>
-				</div>     -->
 				<div class="clearfix">
 					<label for="textarea">Slide Content</label>
 					<div class="input">
@@ -157,6 +190,27 @@
 				</div><!-- /clearfix -->
 				<div class="actions">
 					<input class="btn primary" value="Save changes" onclick="add_slide()">
+					&nbsp;
+					<button type="reset" class="btn">
+						Cancel
+					</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<div id="editform">
+		<form class="form-stacked">
+			<fieldset>
+				<div class="clearfix">
+					<label for="textarea">Slide Content</label>
+					<div class="input">
+						<textarea class="xxlarge" id="slide_edit" name="textarea2" rows="3"></textarea>
+						<span class="help-block"> Put in HTML what you want the slide content to be </span>
+					</div>
+				</div><!-- /clearfix -->
+				<div class="actions">
+					<input class="btn primary" value="Save changes" onclick="edit_slide()">
 					&nbsp;
 					<button type="reset" class="btn">
 						Cancel

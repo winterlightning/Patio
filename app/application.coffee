@@ -31,6 +31,8 @@ class SlideApp extends Spine.Controller
       each_slide = '<section class="slide" id="'+value.id+'">' + value.content + '</section>'
       window.a = each_slide
       $('.deck-container').append(each_slide)
+    
+    $.deck('.slide')
 
 
 $ ->
