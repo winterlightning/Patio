@@ -25,7 +25,6 @@ class SlideApp extends Spine.Controller
     all_slides = Slide.all()
     
     if all_slides.length == 0
-      alert("here")
       Slide.create({name: "one", content: '<h1>This is your first slide! Edit it!</h1>'});
       all_slides = Slide.all()
     
