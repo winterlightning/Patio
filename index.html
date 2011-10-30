@@ -132,6 +132,18 @@
 			curr_slide.content = $('#slide_edit').val();
 			curr_slide.save();
 			
+			location.reload();
+		};
+		
+		function populate_edit() {
+			current_id = $.deck('getSlide')[0].id;
+			
+			curr_slide = Slide.find( current_id );
+			$('#slide_edit').val(curr_slide.content);
+			
+			$('#editform').dialog2('open');
+			
+			return false;
 		};
 		
 	</script>
@@ -142,7 +154,7 @@
 		<button class="btn" style="font-size: 12px; position: relative; top: -3px;" onclick="$('#addform').dialog2('open'); return false">
 			Add Slide
 		</button>
-		<button class="btn" style="font-size: 12px; position: relative; top: -3px;">
+		<button class="btn" style="font-size: 12px; position: relative; top: -3px;" onclick="populate_edit()">
 			Edit Slide
 		</button>
 		<button class="btn" style="font-size: 12px; position: relative; top: -3px;" onclick="delete_slide()">
